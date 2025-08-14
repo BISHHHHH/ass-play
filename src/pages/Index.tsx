@@ -1,21 +1,7 @@
 import VideoPlayer from '@/components/VideoPlayer';
-import { createSampleSubtitleFile } from '@/lib/subtitle-sample';
 import { useState, useEffect } from 'react';
 
 const Index = () => {
-  const [subtitleUrl, setSubtitleUrl] = useState<string>('');
-
-  useEffect(() => {
-    // Create sample subtitle file
-    const url = createSampleSubtitleFile();
-    setSubtitleUrl(url);
-
-    // Cleanup on unmount
-    return () => {
-      URL.revokeObjectURL(url);
-    };
-  }, []);
-
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -39,8 +25,8 @@ const Index = () => {
           {/* Video Player */}
           <div className="mb-8">
             <VideoPlayer 
-              src="/sample-video.mp4"
-              subtitleSrc={subtitleUrl}
+              src="/instagram-reels-video.mp4"
+              subtitleSrc="/subtitles.ass"
               className="shadow-2xl"
             />
           </div>
