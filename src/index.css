@@ -2,41 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Video Player Design System - Dark streaming theme with modern aesthetics */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Dark video player theme */
+    --background: 220 13% 9%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 220 13% 11%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 220 13% 11%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Video player accent colors */
+    --primary: 2 91% 64%; /* Netflix red accent */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 215 27% 16%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 2 91% 64%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 62% 51%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 215 27% 16%;
+    --input: 215 27% 16%;
+    --ring: 2 91% 64%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Video player specific colors */
+    --video-overlay: 220 13% 9% / 0.8;
+    --video-control-bg: 220 13% 6% / 0.9;
+    --video-progress: 2 91% 64%;
+    --video-buffer: 215 20% 65% / 0.3;
+    --video-track: 215 27% 16%;
+    
+    /* Subtitle colors */
+    --subtitle-bg: 220 13% 6% / 0.8;
+    --subtitle-text: 0 0% 100%;
+    --subtitle-shadow: 220 13% 9%;
+
+    /* Gradients */
+    --gradient-video-overlay: linear-gradient(
+      to top,
+      hsl(220 13% 9% / 0.9) 0%,
+      hsl(220 13% 9% / 0.6) 30%,
+      transparent 60%
+    );
+    --gradient-accent: linear-gradient(135deg, hsl(2 91% 64%), hsl(14 91% 60%));
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s ease;
 
     --sidebar-background: 0 0% 98%;
 
@@ -92,7 +117,6 @@ All colors MUST be HSL.
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
-}
 
 @layer base {
   * {
@@ -101,5 +125,73 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Video Player Styles */
+  .video-player {
+    @apply relative bg-card overflow-hidden;
+    border-radius: var(--radius);
+  }
+
+  .video-overlay {
+    background: var(--gradient-video-overlay);
+  }
+
+  .video-controls {
+    @apply pointer-events-none;
+  }
+
+  .video-controls > * {
+    @apply pointer-events-auto;
+  }
+
+  /* Subtitle Styles */
+  .subtitle-container {
+    background: hsl(var(--subtitle-bg));
+    backdrop-filter: blur(4px);
+  }
+
+  .subtitle-text {
+    color: hsl(var(--subtitle-text));
+    text-shadow: 2px 2px 4px hsl(var(--subtitle-shadow));
+    font-weight: 500;
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+
+  /* Progress Slider Styles */
+  .video-progress-slider [data-orientation="horizontal"] {
+    @apply h-2;
+  }
+
+  .video-progress-slider [role="slider"] {
+    @apply w-4 h-4 bg-primary border-2 border-primary-foreground;
+  }
+
+  .video-progress-slider [data-orientation="horizontal"] > span:first-child {
+    background-color: hsl(var(--video-track));
+  }
+
+  .video-progress-slider [data-orientation="horizontal"] > span:first-child > span {
+    @apply bg-primary;
+  }
+
+  /* Volume Slider Styles */
+  .volume-slider [data-orientation="horizontal"] {
+    @apply h-1;
+  }
+
+  .volume-slider [role="slider"] {
+    @apply w-3 h-3 bg-primary;
+  }
+
+  .volume-slider [data-orientation="horizontal"] > span:first-child {
+    @apply bg-muted;
+  }
+
+  .volume-slider [data-orientation="horizontal"] > span:first-child > span {
+    @apply bg-primary;
   }
 }
