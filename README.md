@@ -2,7 +2,7 @@
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/615353c1-a9cd-419c-91de-47d5d7c0d40b
+**URL**: https://ass-player.vercel.app/
 
 ## How can I edit this code?
 
