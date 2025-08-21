@@ -2,62 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Video Player Design System - Dark streaming theme with modern aesthetics */
+/* Reelo Brand Design System - Modern turquoise tech branding */
 
 @layer base {
   :root {
-    /* Dark video player theme */
-    --background: 220 13% 9%;
-    --foreground: 210 40% 98%;
+    /* Reelo brand theme */
+    --background: 0 0% 100%;
+    --foreground: 210 11% 15%;
 
-    --card: 220 13% 11%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 11% 15%;
 
-    --popover: 220 13% 11%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 11% 15%;
 
-    /* Video player accent colors */
-    --primary: 2 91% 64%; /* Netflix red accent */
+    /* Reelo brand colors */
+    --primary: 174 72% 56%; /* Reelo turquoise */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 217 32% 17%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 210 11% 96%;
+    --secondary-foreground: 210 11% 15%;
 
-    --muted: 215 27% 16%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 210 11% 96%;
+    --muted-foreground: 210 11% 45%;
 
-    --accent: 2 91% 64%;
+    --accent: 174 72% 56%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62% 51%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 215 27% 16%;
-    --input: 215 27% 16%;
-    --ring: 2 91% 64%;
+    --border: 210 11% 90%;
+    --input: 210 11% 90%;
+    --ring: 174 72% 56%;
 
     --radius: 0.75rem;
 
-    /* Video player specific colors */
-    --video-overlay: 220 13% 9% / 0.8;
-    --video-control-bg: 220 13% 6% / 0.9;
-    --video-progress: 2 91% 64%;
-    --video-buffer: 215 20% 65% / 0.3;
-    --video-track: 215 27% 16%;
+    /* Reelo specific brand colors */
+    --reelo-teal: 174 72% 56%;
+    --reelo-teal-light: 174 72% 85%;
+    --reelo-teal-dark: 174 72% 35%;
+    --reelo-dark: 210 50% 15%;
+    --reelo-gray: 210 11% 45%;
     
-    /* Subtitle colors */
-    --subtitle-bg: 220 13% 6% / 0.8;
-    --subtitle-text: 0 0% 100%;
-    --subtitle-shadow: 220 13% 9%;
-
     /* Gradients */
-    --gradient-video-overlay: linear-gradient(
-      to top,
-      hsl(220 13% 9% / 0.9) 0%,
-      hsl(220 13% 9% / 0.6) 30%,
-      transparent 60%
-    );
-    --gradient-accent: linear-gradient(135deg, hsl(2 91% 64%), hsl(14 91% 60%));
+    --gradient-hero: linear-gradient(135deg, hsl(174 72% 56%), hsl(174 72% 45%));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 11% 98%));
 
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
