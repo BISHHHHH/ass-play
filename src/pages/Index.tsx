@@ -72,19 +72,26 @@ const Index = () => {
               Our Workspace
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {/* Placeholder office images */}
-              {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
+              {/* Real office workspace photos */}
+              {[
+                { src: '/office-1.jpg', alt: 'Modern office workspace with laptops and natural lighting' },
+                { src: '/office-2.jpg', alt: 'Team collaboration area with whiteboard and comfortable seating' },
+                { src: '/office-3.jpg', alt: 'Contemporary office meeting room with glass walls' },
+                { src: '/office-4.jpg', alt: 'Creative workspace with plants and modern furniture' },
+                { src: '/office-5.jpg', alt: 'Open office layout with ergonomic workstations' },
+                { src: '/office-6.jpg', alt: 'Casual office lounge area for team breaks' },
+                { src: '/office-7.jpg', alt: 'High-tech office setup with multiple monitors' },
+                { src: '/office-8.jpg', alt: 'Bright office space with large windows and city view' }
+              ].map((image, index) => (
                 <div 
                   key={index}
-                  className="aspect-square bg-gradient-to-br from-primary/20 to-primary/40 rounded-xl overflow-hidden group cursor-pointer"
+                  className="aspect-square rounded-xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-xl transition-shadow duration-300"
                 >
-                  <div className="w-full h-full bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300 flex items-center justify-center">
-                    <div className="text-primary/60 group-hover:text-primary/80 transition-colors duration-300">
-                      <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-                      </svg>
-                    </div>
-                  </div>
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
                 </div>
               ))}
             </div>
